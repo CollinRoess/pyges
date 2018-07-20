@@ -1,5 +1,8 @@
+"""
+I know this looks like it was written by a toddler.
+Maybe it was. Anyway pipe down. I'll fix it.
+"""
 import os
-import pandas as pd
 
 def get_file(file_name):
     global file
@@ -29,9 +32,20 @@ def get_points():
     for item in pointlist:
         for i in item:
             true_pointlist.append(i)
-    print (set(true_pointlist))
 
-
+    c=[]
+    xyz=[]
+    for item in set(true_pointlist):
+        c.append(item)
+    for item in c:
+        try:
+            xyz.append(int(item))
+        except ValueError:
+            try:
+                xyz.append(float(item))
+            except ValueError:
+                pass
+    print(sorted(xyz))
 
 if __name__ == '__main__':
     print('NOTE: Filenames must be in the same directory as this program')
